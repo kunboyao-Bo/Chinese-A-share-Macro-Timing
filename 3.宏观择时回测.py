@@ -27,7 +27,7 @@ except:
 # ──────────────────────────────────────────────
 # 1. 读取数据
 # ──────────────────────────────────────────────
-DATA_ROOT = r'D:\学习\量化数据\股票宏观'
+DATA_ROOT = r'输入文件存放地址'
 result = pd.read_excel(f'{DATA_ROOT}\\macro_timing_result.xlsx')
 price  = pd.read_excel(f'{DATA_ROOT}\\index_price.xlsx')
 
@@ -229,10 +229,6 @@ print("明细已保存至 macro_backtest_detail.xlsx")
 from scipy import stats
 
 # 7.1 构造信号+未来收益对照表
-# 用 macro_timing_result 里的 signal，对齐到 bt 的执行日期
-# bt['date'] 是执行日（次月open），signal 对应的是上月末信号
-# 未来1个月收益 = 本期exec到下期exec的价格变化（已在bt中）
-# 未来3个月收益 = 本期exec到3期后exec的价格变化
 
 sig_ret = bt[['date', 'signal', 'exec_price']].copy()
 sig_ret['ret_1m'] = sig_ret['exec_price'].pct_change(1).shift(-1)
