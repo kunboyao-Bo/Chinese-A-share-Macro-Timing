@@ -11,7 +11,7 @@ import numpy as np
 # ──────────────────────────────────────────────
 # 1. 读取数据
 # ──────────────────────────────────────────────
-DATA_ROOT = r'D:\学习\量化数据\股票宏观'
+DATA_ROOT = r'输入文件路径'
 pmi  = pd.read_excel(f'{DATA_ROOT}\\cn_pmi.xlsx',        parse_dates=['Date']).rename(columns={'Date':'date'})
 ppi  = pd.read_excel(f'{DATA_ROOT}\\cn_ppi.xlsx',        parse_dates=['Date']).rename(columns={'Date':'date'})
 pe   = pd.read_excel(f'{DATA_ROOT}\\index_PE.xlsx',      parse_dates=['Date']).rename(columns={'Date':'date'})
